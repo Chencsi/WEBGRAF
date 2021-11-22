@@ -15,17 +15,18 @@
             document.body.appendChild(p);
         }
         const nums = [];
+        const ans = ['Igen', 'Nem']
         const len = parseInt(prompt("Tömb hosszúsága"));
-        let canlog = true;
-        let bigger = "nem";
+        let found = false;
+        for (let i = 0; i < len; i++) nums[i] = Math.floor(Math.random() * 100) + 1;
+        addp(nums.join());
         for (let i = 0; i < len; i++) {
-            nums[i] = Math.floor(Math.random()*1000)
-            if((nums[i-1]>nums[i-2])&&(nums[i-1]>nums[i])){
-                bigger = "igen"
+            if ((nums[i - 1] > nums[i]) && (nums[i + 1] > nums[i])) {
+                found = true;
+                break;
             }
         }
-        addp(nums)
-        addp(bigger)
+        (found) ? addp(ans[0]) : addp(ans[1]);
     </script>
 </body>
 
