@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. feladat</title>
+</head>
+
+<body>
+    <script>
+        function addp(text) {
+            let p = document.createElement("P");
+            p.innerHTML = text;
+            document.body.appendChild(p);
+        }
+        function is_prime(num) {
+            if (num <= 1) return false;
+            if (num % 2 == 0 && num > 2) return false;
+            const s = Math.sqrt(num);
+            for (let i = 3; i <= s; i += 2) if (num % i === 0) return false;
+            return true;
+        }
+        let n = parseInt(prompt("Kérem az n értékét: ")) + 1;
+        let m = parseInt(prompt("Kérem az m értékét: "));
+        for (let i; n + 1 < m; n++) if (is_prime(n)) addp(n);
+    </script>
+</body>
+
+</html>
