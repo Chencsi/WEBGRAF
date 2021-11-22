@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. feladat</title>
+</head>
+
+<body>
+    <script>
+        function addp(text) {
+            let p = document.createElement("p");
+            p.innerHTML = text;
+            document.body.appendChild(p);
+        }
+        const nums = [];
+        const len = parseInt(prompt("Tömb hosszúsága"));
+        let canlog = true;
+        let bigger = "nem";
+        for (let i = 0; i < len; i++) {
+            nums[i] = Math.floor(Math.random()*1000)
+            if((nums[i-1]>nums[i-2])&&(nums[i-1]>nums[i])){
+                bigger = "igen"
+            }
+        }
+        addp(nums)
+        addp(bigger)
+    </script>
+</body>
+
+</html>

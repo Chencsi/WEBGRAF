@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.feladat</title>
+</head>
+
+<body>
+    <script>
+        function addp(text) {
+            let p = document.createElement("p");
+            p.innerHTML = text;
+            document.body.appendChild(p);
+        }
+        let num = [];
+        for (let i = 0; i < 5; i++) {
+            num.push(parseInt(prompt(`Kérem a(z) ${i} számot: `)));
+        }
+        num.forEach(function(e){
+            addp(`${e}: ${e.toString(2)} ${e.toString(16)}`);
+        })
+    
+
+    </script>
+</body>
+
+</html>
