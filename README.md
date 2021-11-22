@@ -1,4 +1,4 @@
-# WEBGRAF
+# WebGraf 2021 Informatika verseny
 WebGraf 2021 Informatika verseny
 
 Az Eszterházy Károly Egyetem Informatikai Kara a 4 Campus Program – A felsőoktatásba való bekerülést elősegítő készségfejlesztő és kommunikációs programok megvalósítása, valamint az MTMI szakok népszerűsítése az Eszterházy Károly Egyetemen – nevű projektje keretében országos, ötfordulós informatikai versenyt rendez 3 fős csapatok részvételével. A versenyre elsősorban 11-12. évfolyamos diákok jelentkezését várjuk.
@@ -33,6 +33,3 @@ A jelentkezés menete:
 3. A jelentkezés során meg kell adni a csapat nevét, a csapattagok nevét, születési évét, az iskola nevét és a felkészítő tanár nevét.
 
 Az első forduló anyagát október 26-án tesszük közzé.
-
-Versenyfelelős: Dr. Király Sándor
-Versenyfelelős email: kiraly.sandor@uni-eszterhazy.hu 
