@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>olimpiai körök</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="800" height="500"></canvas><br>
+  <div style=display:none;>
+    <input id="karika0" type="button" name="" value="kék" onclick="karika0()">
+    <input id="karika1" type="button" name="" value="sárga" onclick="karika1()">
+    <input id="karika2" type="button" name="" value="fekete" style="color: white" onclick="karika2()">
+    <input id="karika3" type="button" name="" value="zöld" onclick="karika3()">
+    <input id="karika4" type="button" name="" value="piros" onclick="karika4()">
+  </div>
+  <script>
+
+    function karika0() { onoff(0); }
+    function karika1() { onoff(1); }
+    function karika2() { onoff(2); }
+    function karika3() { onoff(3); }
+    function karika4() { onoff(4); }
+
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var r = 80;
+    var grd;
+    var colors = ["rgb(62,118,2360)", "rgb(255,206,1)", "black", "rgb(23,154,19)", "red"];
+    var karika = [true, true, true, true, true];
+    ctx.lineWidth = 10;
+
+    for (var i = 0; i < 5; i++) {
+      document.getElementById("karika" + i).style.backgroundColor = colors[i];
+    }
+
+    olimpyc();
+
+    function olimpyc() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      if (karika[0]) {
+        grd = ctx.createLinearGradient(40, 0, 200, 0);
+        grd.addColorStop(0, colors[0]);
+        grd.addColorStop(1, colors[1]);
+        ctx.strokeStyle = colors[0];
+        ctx.fillStyle = grd;
+        ctx.beginPath();
+        ctx.arc(120, 120, r, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+      }
+      if (karika[1]) {
+        grd = ctx.createLinearGradient(140, 0, 300, 0);
+        grd.addColorStop(0, colors[0]);
+        grd.addColorStop(0.5, colors[1]);
+        grd.addColorStop(1, colors[2]);
+        ctx.beginPath();
+        ctx.strokeStyle = colors[1];
+        ctx.fillStyle = grd;
+        ctx.arc(210, 220, r, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+      }
+      if (karika[2]) {
+        grd = ctx.createLinearGradient(220, 0, 380, 0);
+        grd.addColorStop(0, colors[1]);
+        grd.addColorStop(0.5, colors[2]);
+        grd.addColorStop(1, colors[3]);
+        ctx.beginPath();
+        ctx.strokeStyle = colors[2];
+        ctx.fillStyle = grd;
+        ctx.arc(300, 120, r, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+      }
+      if (karika[3]) {
+        grd = ctx.createLinearGradient(310, 0, 470, 0);
+        grd.addColorStop(0, colors[2]);
+        grd.addColorStop(0.5, colors[3]);
+        grd.addColorStop(1, colors[4]);
+        ctx.beginPath();
+        ctx.strokeStyle = colors[3];
+        ctx.fillStyle = grd;
+        ctx.arc(390, 220, r, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+      }
+      if (karika[4]) {
+        grd = ctx.createLinearGradient(400, 0, 560, 0);
+        grd.addColorStop(0, colors[3]);
+        grd.addColorStop(1, colors[4]);
+        ctx.beginPath();
+        ctx.strokeStyle = colors[4];
+        ctx.fillStyle = grd;
+        ctx.arc(480, 120, r, 0, 2 * Math.PI);
+        ctx.stroke();
+        ctx.fill();
+
+      }
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. feladat</title>
+</head>
+
+<body>
+  <script>
+    let age = parseInt(prompt("Kérem az életkort: "));
+    if (!(age < 0)) {
+      if (age > 17) {
+        if (age > 18) {
+          alert("Te már leérettségiztél")
+        } else {
+          alert("Most érettségizel")
+        }
+      } else if (age > 13) {
+        if (age < 18) {
+          alert("Középiskolás vagy")
+        }
+      } else if (age > 5) {
+        if (age < 14) {
+          alert("Általános iskolás vagy")
+        }
+      } else {
+        alert("Nem vagy elég még iskolás")
+      }
+    } else {
+      alert("Nem lehet az életkorod kevesebb nullánál!")
+    }
+  </script>
+</body>
+
+</html>

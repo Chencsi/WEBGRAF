@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logó</title>
+</head>
+<body>
+    <canvas id="canvas" width="400" height="400" style="border: 1px solid black"></canvas>
+    
+    <script>
+        var c = document.getElementById("canvas")
+        var ctx = c.getContext("2d");
+        var x = 200;
+        var y = x/2;
+        var z = y/2;
+
+        ctx.lineWidth="3";
+        ctx.strokeStyle="blue"
+        ctx.rect(y,y,x,x);
+        ctx.stroke();
+        
+        ctx.beginPath();
+        ctx.arc(x, x, y, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.moveTo(x,y)
+        ctx.lineTo(x+y,x)
+        ctx.lineTo(x,x+y)
+        ctx.lineTo(y,x)
+        ctx.lineTo(x,y)
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(x, x, z, 0, 2 * Math.PI);
+        ctx.stroke();
+    </script>
+</body>
+</html>

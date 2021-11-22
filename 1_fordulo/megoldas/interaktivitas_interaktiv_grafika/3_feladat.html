@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3. feladat</title>
+</head>
+
+<body>
+  <script>
+    let n = []; letters = ['a', 'b', 'c']
+    for (i = 0; i < 3; i++) {
+      n.push(parseInt(prompt(`Kérem a háromszög '${letters[i]}' oldalának hosszát: `)))
+    }
+    let ossz = n[2] ** 2 - n[0] ** 2 - n[1] ** 2
+    if (ossz == 0) {
+      alert('derékszögű')
+    } else if (ossz > 0) {
+      alert('tompaszögű')
+    } else {
+      alert('hegyesszögű')
+    }
+  </script>
+</body>
+
+</html>

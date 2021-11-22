@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5.feladat</title>
+</head>
+
+<body>
+  <canvas id="canvas" width="500" height="500"
+    style="border:0px solid black;display:block;margin:0 auto 0 auto;"></canvas>
+  <script>
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
+    let lo = false
+    let x = parseInt(prompt("Kérem az x értéket(0-10):"))
+    let y = parseInt(prompt("Kérem az y értéket(0-10):"))
+    let koor = x ** 2 + y ** 2
+
+    if (koor < 100) {
+      alert('Le tudja lőni')
+    } else {
+      alert('Nem tudja lelőni!')
+    }
+    
+    ctx.beginPath();
+    ctx.arc(250, 250, 250, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.strokeStyle = "blue"
+    ctx.arc(250, 250, 30, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.strokeStyle = "red"
+    ctx.arc(x * 50, y * 50, 10, 0, 2 * Math.PI);
+    ctx.stroke();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10. feladat</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="1000" height="900" style="border:1px solid black; position: absolute;"></canvas>
+    <canvas id="canvas2" width="1000" height="900" style="border:1px solid black; position: absolute;"></canvas>
+    <button onclick="csuk()" style="position: relative; left: 758px; top: 780px;">csuk</button>
+    <script>
+        let c = document.getElementById("canvas")
+        let ctx = c.getContext("2d")
+
+        let c2 = document.getElementById("canvas2")
+        let ctx2 = c2.getContext("2d")
+
+        let hidden = true
+        canvas2.style.visibility = "hidden"
+
+        let a = 300
+        let b = a * 2 / 3
+        let d = a * 1 / 5
+        let e = a / 2
+        let f = b / 20
+
+// csukott
+    // ajtó, szín, vastagság
+        ctx.lineWidth="3"
+        ctx.strokeStyle = "blue"
+        ctx.rect(a, e, a, 2 * a)
+        ctx.stroke()
+
+    // teteje
+        ctx.moveTo(2 * a, e)
+        ctx.lineTo(2 * a + b, b - e)
+        ctx.lineTo(a + b, b - e)
+        ctx.lineTo(a, e)
+        ctx.stroke()
+
+    // oldala
+        ctx.moveTo(2 * a, 3 * a - e)
+        ctx.lineTo(2 * a + b, 2 * a + b - e)
+        ctx.lineTo(2 * a + b, b - e)
+        ctx.stroke()
+
+     // kilincs
+        ctx.moveTo(2 * a - d, 2 * a - e)
+        ctx.lineTo(2 * a - 2 * d, 2 * a - e)
+        ctx.stroke()
+
+ // nyitott
+    // keret, szín, vastagság
+        ctx2.lineWidth="3"
+        ctx2.strokeStyle = "blue"
+        ctx2.rect(a, e, a, 2 * a)
+        ctx2.stroke()
+
+    // teteje
+        ctx2.moveTo(2 * a, e)
+        ctx2.lineTo(2 * a + b, b - e)
+        ctx2.lineTo(a + b, b - e)
+        ctx2.lineTo(a, e)
+        ctx2.stroke()
+
+    // oldala
+        ctx2.moveTo(2 * a, 3 * a - e)
+        ctx2.lineTo(2 * a + b, 2 * a + b - e)
+        ctx2.lineTo(2 * a + b, b - e)
+        ctx2.stroke()
+
+    // ajtó
+        ctx2.moveTo(a,e)
+        ctx2.lineTo(e , a)
+        ctx2.lineTo(e , 3 * a)
+        ctx2.lineTo(a , 3 * a - e)
+        ctx2.stroke()
+    
+    // polc
+        ctx2.beginPath()
+        ctx2.fillStyle = "grey"
+        ctx2.moveTo(2 * a-2 , a)
+        ctx2.lineTo(a + d , 2 * a - d - e)
+        ctx2.lineTo(2 * a-2 , 2 * a - d - e)
+        ctx2.closePath()
+        ctx2.fill()
+        
+    // polc
+        ctx2.beginPath()
+        ctx2.fillStyle = "grey"
+        ctx2.moveTo(2 * a-2 , 2 * a)
+        ctx2.lineTo(a + d , 2 * a - d + e)
+        ctx2.lineTo(2 * a-2 , 2 * a - d + e)
+        ctx2.closePath()
+        ctx2.fill()
+
+    // cola
+        ctx2.beginPath()
+        ctx2.fillStyle="red"
+        ctx2.ellipse(a + e + 2 * f, a - d, f*3, f, Math.PI, 0, Math.PI)
+        ctx2.lineTo(a + e + 2 * f + f*3, a+d)
+        ctx2.ellipse(a + e + 2 * f, a + d, f*3, f, Math.PI*2, 0, Math.PI)
+        ctx2.closePath()
+        ctx2.fill()
+        
+        ctx2.beginPath()
+        ctx2.strokeStyle = "black"
+        ctx2.ellipse(a + e + 2 * f, a - d, f*3, f, Math.PI, 0, 2 * Math.PI)
+        ctx2.ellipse(a + e + 2 * f, a + d, f*3, f, Math.PI, 0, Math.PI, true)
+        ctx2.moveTo(a + e + 2 * f + f*3, a- d)
+        ctx2.lineTo(a + e + 2 * f + f*3, a+d)
+        ctx2.font="20px Arial"
+        ctx2.fillStyle="black"
+        ctx2.textAlign= "center"
+        ctx2.fillText("Cola", a + e + 2 * f, a )
+        ctx2.stroke()
+        ctx2.closePath()
+
+    // sör
+        ctx2.beginPath()
+        ctx2.fillStyle="green"
+        ctx2.ellipse(a + e + 3 * f + d, a - d, f*3, f, Math.PI, 0, Math.PI)
+        ctx2.lineTo(a + e + 3 * f + d + f*3, a+d)
+        ctx2.ellipse(a + e + 3 * f + d, a + d, f*3, f, Math.PI*2, 0, Math.PI)
+        ctx2.closePath()
+        ctx2.fill()
+        
+        ctx2.beginPath()
+        ctx2.strokeStyle = "black"
+        ctx2.ellipse(a + e + 3 * f + d, a - d, f*3, f, Math.PI, 0, 2 * Math.PI)
+        ctx2.ellipse(a + e + 3 * f + d, a + d, f*3, f, Math.PI, 0, Math.PI, true)
+        ctx2.moveTo(a + e + 3 * f + d + f*3, a- d)
+        ctx2.lineTo(a + e + 3 * f + d + f*3, a+d)
+        ctx2.font="20px Arial"
+        ctx2.fillStyle="black"
+        ctx2.textAlign= "center"
+        ctx2.fillText("Sör", a + e + 3 * f + d, a )
+        ctx2.stroke()
+        ctx2.closePath()
+        
+    // vaj
+        ctx2.beginPath()
+        ctx2.fillStyle = "#f6e2b9"
+        ctx2.moveTo(a + e - d , 2 * a + d - f, d ,3*f)
+        ctx2.lineTo(a + e - d / 2 , 2 * a + d - 2 * f)
+        ctx2.lineTo(a + e - d / 2 + d , 2 * a + d - 2 * f)  
+        ctx2.lineTo(a + e - d / 2 + d , 2 * a + d + f) 
+        ctx2.lineTo(a + e , 2 * a + d + 2 * f) 
+        ctx2.lineTo(a + e - d, 2 * a + d + 2 * f) 
+        ctx2.closePath()
+        ctx2.fill()
+
+        ctx2.beginPath()
+        ctx2.rect(a + e - d , 2 * a + d - f, d ,3*f)
+        ctx2.lineTo(a + e - d / 2 , 2 * a + d - 2 * f)
+        ctx2.lineTo(a + e - d / 2 + d , 2 * a + d - 2 * f)  
+        ctx2.lineTo(a + e - d / 2 + d , 2 * a + d + f) 
+        ctx2.lineTo(a + e , 2 * a + d + 2 * f) 
+        ctx2.lineTo(a + e , 2 * a + d - f) 
+        ctx2.lineTo(a + e - d / 2 + d , 2 * a + d - 2 * f) 
+        ctx2.font="20px Arial"
+        ctx2.fillStyle="black"
+        ctx2.textAlign= "center"
+        ctx2.fillText("vaj", a + e - 3 * f , 2 * a + d + f)
+        ctx2.stroke()
+        ctx2.closePath()
+        
+    // süti
+        ctx2.beginPath()
+        ctx2.fillStyle = "#84563C"
+        ctx2.moveTo(a + e - d + 2 * d - f , 2 * a + d - f, d ,3*f)
+        ctx2.lineTo(a + e - d / 2 + 2 * d - f , 2 * a + d - 2 * f)
+        ctx2.lineTo(a + e - d / 2 + d + 2 * d - f , 2 * a + d - 2 * f)  
+        ctx2.lineTo(a + e - d / 2 + d + 2 * d - f , 2 * a + d + f) 
+        ctx2.lineTo(a + e + 2 * d - f , 2 * a + d + 2 * f) 
+        ctx2.lineTo(a + e - d + 2 * d - f , 2 * a + d + 2 * f) 
+        ctx2.closePath()
+        ctx2.fill()
+
+        ctx2.beginPath()
+        ctx2.rect(a + e - d + 2 * d - f , 2 * a + d - f, d ,3*f)
+        ctx2.lineTo(a + e - d / 2 + 2 * d - f , 2 * a + d - 2 * f)
+        ctx2.lineTo(a + e - d / 2 + d + 2 * d - f , 2 * a + d - 2 * f)  
+        ctx2.lineTo(a + e - d / 2 + d + 2 * d - f , 2 * a + d + f) 
+        ctx2.lineTo(a + e + 2 * d - f , 2 * a + d + 2 * f) 
+        ctx2.lineTo(a + e + 2 * d - f , 2 * a + d - f) 
+        ctx2.lineTo(a + e - d / 2 + d + 2 * d - f , 2 * a + d - 2 * f) 
+        ctx2.font="20px Arial"
+        ctx2.fillStyle="black"
+        ctx2.textAlign= "center"
+        ctx2.fillText("süti", a + e - 3 * f + 2 * d - f , 2 * a + d + f)
+        ctx2.stroke()
+        ctx2.closePath()
+        
+
+
+
+
+
+        function csuk() {
+            hidden = !hidden
+            console.log(a,b,d,e,f)
+            if (hidden) {
+                canvas2.style.visibility = "hidden"
+                canvas.style.visibility = "visible"
+            } else {
+                canvas2.style.visibility = "visible"
+                canvas.style.visibility = "hidden"
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
+<!-- Vadoba Hunor -->

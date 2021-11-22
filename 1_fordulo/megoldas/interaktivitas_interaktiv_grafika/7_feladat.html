@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7. feladat</title>
+</head>
+
+<body>
+  <script>
+    function addp(text) {
+      let p = document.createElement("P");
+      p.innerHTML = text;
+      document.body.appendChild(p);
+    }
+    function evens(max, min) {
+      if (!(max % 2 == 0)) max = max - 1; for (let i = max; i > min; i -= 2) addp(i);
+    }
+    let num1 = parseInt(prompt('Kérem az 1. számot: '))
+    let num2 = parseInt(prompt('Kérem az 2. számot: '))
+    if (num1 > num2) evens(num1, num2)
+    else if (num2 > num1) evens(num2, num1)
+  </script>
+</body>
+
+</html>

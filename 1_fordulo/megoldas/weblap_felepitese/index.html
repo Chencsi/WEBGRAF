@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<!--
+  készítette: neu10c csapata
+-->
+
+<head>
+  <title>Neu10c bemutatkozás</title>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: rgb(50, 205, 200);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    p {
+      text-align: justify;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Csapatbemutató</h1>
+  <hr>
+  <h2>Logó:</h2>
+  <canvas id="canvas" width="200" height="200" style="border: 1px solid black"></canvas>
+  <h2>Bemutatkozás:</h2>
+  <p>
+    Mi a Neumann János Számítás technikai iskola tizedikes tanulói vagyunk.Szeretjük idõnket a szabadban, videó
+    játékokkal tölteni.
+    Mindannyian 16 évesek vagyunk és szeretünk a programozással foglalkozni.
+  </p>
+  <h2>Adatok:</h2>
+  <ul>
+    <li>Iskola neve: BMSZC Neumann János Informatikai Technikum</li>
+    <li>Iskola címe: <a href="https://www.google.com/maps?q=1144+Budapest,+Kerepesi+%C3%BAt+124&entry=gmail&source=g"
+        target="_blank">1144 Budapest, Kerepesi út 124</a></li>
+    <li>Iskola weblapjának linkje: <a href="http://www.njszg.hu/" target="_blank">http://www.njszg.hu/</a></li>
+  </ul>
+  <h2>Kedvenc időtöltéseink:</h2>
+  <ul>
+    <li>programozás</li>
+    <li>kirándulás</li>
+  </ul>
+  <h2>Csapattagok:</h2>
+  <table border="1" style="width:500px">
+    <tr>
+      <th>Név</th>
+      <th>Szül. hely</th>
+      <th>Szül. idő</th>
+    </tr>
+    <tr>
+      <td>Chen Kevin</td>
+      <td>Budapest</td>
+      <td>2005.01.02</td>
+    </tr>
+    <tr>
+      <td>Simon Vince</td>
+      <td>Budapest</td>
+      <td>2006.05.13</td>
+    </tr>
+    <tr>
+      <td>Vadoba Hunor</td>
+      <td>Budapest</td>
+      <td>2005.05.28</td>
+    </tr>
+  </table>
+
+  <div style="padding-top: 20px;">
+    <a href="csoportkep.jpg" target="_blank">
+      <img style="width: 500px;" src="csoportkep_tn.jpg" alt="[Egy kép, ami a csapattagokat tartalmazza]">
+    </a>
+  </div>
+
+  <script>
+    var c = document.getElementById("canvas")
+    var ctx = c.getContext("2d");
+    var x = 100;
+    var y = x / 2;
+    var z = y / 2;
+
+    ctx.lineWidth = "3";
+    ctx.strokeStyle = "blue"
+    ctx.rect(y, y, x, x);
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(x, x, y, 0, 2 * Math.PI);
+    ctx.stroke();
+
+    ctx.moveTo(x, y)
+    ctx.lineTo(x + y, x)
+    ctx.lineTo(x, x + y)
+    ctx.lineTo(y, x)
+    ctx.lineTo(x, y)
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.arc(x, x, z, 0, 2 * Math.PI);
+    ctx.stroke();
+  </script>
+
+</body>
+
+</html>
