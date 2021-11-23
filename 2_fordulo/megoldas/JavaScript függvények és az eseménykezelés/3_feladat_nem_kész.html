@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3. feladat</title>
 </head>
-<body>
-    
-    <script>
-        let n = 12435
-        let n_szov = n.toString()
-        let m = 1234
-        let m_szov = m.toString()
-        let azonos = 0
-        let azon_2 = 0
-        let hossz = Math.min(n_szov.length,m_szov.length)
 
-        for(let i = 0; i < hossz; i++){
-            if(n_szov[i] == m_szov[i]){
-                azonos++
+<body>
+
+    <label for="nLabel">1. szám</label><br>
+    <input type="text" id="n" name="n" style="margin-bottom:10px"><br>
+    <label for="mLabel">2. szám</label><br>
+    <input type="text" id="m" name="m">
+    <input type="checkbox" id="check" name="check" value="check">
+    <label for="vehicle1">Esetek száma</label><br>
+    <button name="data" onclick="return submit(event)" style="margin-top: 10px;">Mehet</button>
+
+    <p id="result"></p>
+
+    <script>
+
+        function submit(event) {
+            let n = document.getElementById("n").value;
+            let m = document.getElementById("m").value;
+            let len = Math.min(n.length,m.length);
+            let match = [0,0];
+            let setp = () => {
+                document.getElementById("result").innerHTML = `${match[0]} ${match[1]}`;
+            }   
+            for (let i = 0; i < len; i++) {
+                if (n[i] == m[i]) match[0]++
             }
-        }
-        for(let i = 0; i < n_szov.length; i++){
-            if(n_szov.includes(m_szov[i])){
-                azon_2++
+            if (document.getElementById("check").checked){
+                for (let i = 0; i < n.length; i++) {
+                    if (n.includes(m[i])) match[1]++
+                }
             }
+            setp();
         }
-        console.log(azonos,azon_2)
 
     </script>
 </body>
+
 </html>
