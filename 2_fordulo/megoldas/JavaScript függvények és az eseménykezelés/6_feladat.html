@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6. feladat</title>
+  <style>
+    html,
+    body {
+      font-family: courier;
+      background-color: rgb(230, 230, 230);
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 60px auto 0 auto;
+    }
+    td {
+      padding: 50px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    td:hover{
+      background-color: darkgray;
+    }
+    .active{
+      background-color: blue;
+    }
+    .active:hover{
+      background-color: darkblue;
+    }
+    #timerp {
+      font-size: 20pt;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 style="text-align:center;">Játék</h1>
+
+  <table border="1" cellpadding="10">
+    <tr>
+      <td id="cel1"></td>
+      <td id="cel2"></td>
+      <td id="cel3"></td>
+      <td id="cel4"></td>
+    </tr>
+    <tr>
+      <td id="cel5"></td>
+      <td id="cel6"></td>
+      <td id="cel7"></td>
+      <td id="cel8"></td>
+    </tr>
+    <tr>
+      <td id="cel9"></td>
+      <td id="cel10"></td>
+      <td id="cel11"></td>
+      <td id="cel12"></td>
+    </tr>
+    <tr>
+      <td id="cel13"></td>
+      <td id="cel14"></td>
+      <td id="cel15"></td>
+      <td id="cel16"></td>
+    </tr>
+  </table>
+
+  <p id="timerp"></p>
+
+  <script>
+
+    const cell = Math.ceil(Math.random() * 16);
+    let clickable = false;
+    let enough = false;
+    var stoptime = true;
+    let time;
+    let seconds = 0;
+
+    function timerCycle() {
+      if (stoptime == false) {
+        seconds += 1;
+        setTimeout("timerCycle()", 1000);
+      }
+    }
+    while (!enough) {
+      time = (Math.random() * 25000);
+      (time < 7000) ? enough = true : enough = false;
+    }
+    setTimeout(() => {
+      document.getElementById(`cel${cell}`).classList.add('active')
+      clickable = true;
+      stoptime = false;
+      timerCycle();
+    }, time);
+    document.getElementById(`cel${cell}`).onclick = () => {
+      if (clickable) {
+        stoptime = true;
+        document.getElementById("timerp").innerHTML = (`Eltelt idő: ${seconds} másodperc`)
+      }
+    };
+
+  </script>
+</body>
+
+</html>
