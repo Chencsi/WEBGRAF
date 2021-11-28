@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sárkányok</title>
+
+</head> 
+<body onLoad="init();">
+    <canvas id="myCanvas" width="900" height="600" style="border: 1px black solid; background-image: url(img/eg1.jpg); background-size: 100% 100%;"></canvas>
+    <input type="button" value="Háttér" onclick="changeBg()">
+    
+    <script>
+        let ctx = document.getElementById('myCanvas').getContext('2d');
+        let i = 0
+
+        let x = 0
+        let go = true
+        let a = 1
+        // Math.floor((Math.random() * 100) + 1)
+        let sarkany = new Image()
+        sarkany.src = 'img/sarkany.png'
+
+        let sarkany1 = new Image()
+        sarkany1.src = 'img/sarkany2.png'
+
+        let sarkany2 = new Image()
+        sarkany2.src = 'img/sarkany3.png'
+
+        let kep = ['url(img/eg1.jpg)', 'url(img/eg2.jpg)', 'url(img/eg3.jpg)', 'url(img/eg4.jpg)']
+        function changeBg(){
+            i++
+            document.getElementById('myCanvas').style.backgroundImage = kep[i%4]
+        }
+
+        function init() {
+            draw()
+            setInterval(move, a)
+            
+        }
+        function draw() {
+            ctx.drawImage(sarkany, x, 300, 100, 100)
+            ctx.drawImage(sarkany1, x, 100, 100, 100)
+            ctx.drawImage(sarkany2, x, 200, 100, 100)
+        }
+
+        function move() {
+            ctx.clearRect(0, 0, 900, 600)
+            if(go){
+                
+                x++
+            }else{
+                x-- 
+            }
+
+            if(x==800){
+                go = false
+            }else if(x==0){
+                go = true
+            }
+            draw()
+        }
+    </script>
+</body>
+</html>
