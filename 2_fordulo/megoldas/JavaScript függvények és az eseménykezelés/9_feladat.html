@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>9. feladat</title>
+  <style>
+    body {
+      margin: 50px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p id="numbers"></p>
+  <p id="bool"></p>
+
+  <script>
+
+    let osveny = [];
+    const numbers = document.getElementById('numbers');
+    const bool = document.getElementById('bool');
+
+    for (let i = 1; i < 61; i++) {
+      if (i == 1 || i == 60) osveny.push(0);
+      else osveny.push(rnd());
+    }
+
+    let road = osveny.join(' ').replace(/0/g, '.').replace(/1/g, '#');
+    function rnd() { if (Math.random() > 0.7) return 1; else return 0; }
+
+    function roadcheck() {
+      let n = 0;
+      for (let i = 0; i < osveny.length; i++) {
+        if (n == 4) return 'nem'; else if (osveny[i] == 1) n++; else if (osveny[i] == 0) n = 0;
+      }
+      if (n != 4) return 'igen';
+    };
+
+    numbers.innerHTML = road;
+    bool.innerHTML = roadcheck();
+
+  </script>
+</body>
+
+</html>
