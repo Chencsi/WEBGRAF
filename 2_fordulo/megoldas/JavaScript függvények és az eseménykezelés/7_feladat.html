@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>7. feladat</title>
+  <style>
+    body {
+      margin: 50px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .form-text,
+    .form-button {
+      display: block;
+      margin: auto;
+    }
+
+    .form-button {
+      font-size: 15px;
+    }
+
+    .form-text {
+      width: 50%;
+      height: 50px;
+      padding: 20px;
+      font-size: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 style="text-align:center;">Titkosítás</h1>
+
+  <input type="text" id="text-input" class="form-text" />
+  <input type="button" id="button" value="Mehet" class="form-button" />
+  <input type="text" id="text-output" class="form-text" />
+
+  <script> 
+
+    document.getElementById("button").onclick = () => {
+      let ipt = document.getElementById("text-input").value;
+      document.getElementById("text-output").value = ipt.replace(/[0-9][0-9][0-9][0-9]/g, "****");
+    }
+
+  </script>
+</body>
+
+</html>
