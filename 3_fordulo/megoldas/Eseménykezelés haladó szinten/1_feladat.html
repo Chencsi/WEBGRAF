@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. feladat</title>
+</head>
+
+<style>
+    body{
+        background-color: black;
+    }
+    #container{
+        display: block;
+        margin: auto;
+        width: 700px;
+        height: 90vh;
+        background-color: white;
+        padding-top: 50px;
+    }
+    #circle{
+        width: 100px;
+        height: 100px;
+        margin: auto;
+        border: darkred 10px solid;
+        background-image: url("kep1.webp");
+        background-size: 100%;
+        border-radius: 100%;
+        animation: pattogas 2s infinite;
+    }
+    #rectangle{
+        width: 600px;
+        height: 320px;
+        margin: auto;
+        background-color: steelblue;
+    }
+    @keyframes pattogas {
+        50%{
+            transform: translate(0, 200px);
+        }
+    }
+</style>
+
+<body>
+
+    <div id="container">
+        <div id="rectangle">
+            <div id="circle"></div>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+</body>
+
+</html>

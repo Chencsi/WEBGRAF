@@ -26,11 +26,10 @@
 
     for (let i = 1; i < 61; i++) {
       if (i == 1 || i == 60) osveny.push(0);
-      else osveny.push(rnd());
+      else osveny.push((Math.random() > 0.7)?  1 : 0);
     }
 
     let road = osveny.join(' ').replace(/0/g, '.').replace(/1/g, '#');
-    function rnd() { if (Math.random() > 0.7) return 1; else return 0; }
 
     function roadcheck() {
       let n = 0;
