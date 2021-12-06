@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1. feladat</title>
+  <style>
+    body{
+      animation: hatter 12s infinite;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    main{
+      background-color: white;
+      padding: 30px;
+      border-radius: 5px;
+      width: 500px;
+      display: block;
+      margin: 0 auto;
+      transform: translateY(15vh);
+    }
+
+    input[type=text],input[type=password], select {
+      font-size: 11pt;
+      transition: all 0.3s;
+      width: 100%;
+      padding: 15px 10px;
+      margin: 10px 0 10px 0;
+      border: 2px solid darkgray;
+      background-color: rgb(255, 255, 255);
+      border-radius: 7px;
+      box-sizing: border-box;
+      caret-color: rgba(255, 255, 255, 0);
+    }
+
+    input[type=text]:focus,input[type=password]:focus{
+      border-radius: 0px;
+      border: 2px solid #417597;
+      outline: none;
+    }
+    
+    input[type=submit] {
+      width: 100%;
+      background-color: #5090bb;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    input[type=submit]:hover {
+      background-color: #457ba0;
+    }
+    
+    @keyframes hatter {
+      0% {
+        background-color: darkcyan;
+      }
+      50%{
+        background-color: darkslateblue;
+      }
+      100% {
+        background-color: darkcyan;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <main>
+    <form>
+      <label for="name">Teljes név:</label><br>
+      <input type="text" id="input input_name" placeholder="Tanuló János"><br>
+      <label for="username">Felhasználónév:</label><br>
+      <input type="text" id="input input_username" placeholder="tanulojanos01"><br>
+      <label for="password1">Jelszó:</label><br>
+      <input type="password" id="input input_password1" placeholder="Jelszó"><br>
+      <label for="password2">Jelszó mégegyszer:</label><br>
+      <input type="password" id="input input_password2" placeholder="Jelszó mégegyszer"><br><br>
+      <input type="submit" value="Regisztráció">
+    </form> 
+  </main>
+  <script>
+    
+  </script>
+</body>
+</html>
