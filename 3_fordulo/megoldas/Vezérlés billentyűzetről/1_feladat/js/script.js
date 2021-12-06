@@ -6,21 +6,15 @@ let posY = 80;
 let used = false;
 let oldpos = 0;
 let stoptime = false;
-let ammoSpeed = 10//parseInt(prompt('Kérem a lövedék gyorsaságát 1 és 15 között:'));
 let seconds = 0;
-/*
-if (ammoSpeed > 15 || ammoSpeed < 1) {
-  location.reload();
-} else {
-  ammoSpeed = ammoSpeed * 2;
-}*/
 ammoID.style.display = 'none';
+let ammoSpeed = parseInt(prompt('Milyen lassan menjen a lövedék? (1-5)'));
 
-function doNothing(){}
+function doNothing() { }
 
 function shoot() {
   if (ammoID.style.display == 'block') {
-    posY += ammoSpeed;
+    posY += 20;
     oldpos = posX;
     ammoID.style.bottom = posY + 'px';
   }
@@ -31,7 +25,7 @@ function shoot() {
   }
   if (!stoptime) {
     seconds += 1;
-    setTimeout("shoot()", 0);
+    setTimeout("shoot()", ammoSpeed * 50);
   }
 }
 
