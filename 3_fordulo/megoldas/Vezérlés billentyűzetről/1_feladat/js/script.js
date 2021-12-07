@@ -46,7 +46,6 @@ function move(event) {
     } else {
       if (ammoID.style.display == 'none') {
         ammoID.style.display = 'block';
-        used = true;
         shoot();
       }
     }
