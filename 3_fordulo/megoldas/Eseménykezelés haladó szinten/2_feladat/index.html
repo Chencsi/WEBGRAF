@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <title>Reakció</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="WebGraf">
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="500" style="border: 1px black solid"></canvas>
+
+    <p id="talal">Találat: 0</p>
+    <p id="melle">Mellé: 0</p>
+    <p id="time">Reakció idő: 0.000s</p>
+
+    <input type="input" id="num" placeholder="Hány kört szeretnél játszani?">
+    <input type="button" value="Start!" onclick="reaction()">
+    
+    <script>
+
+        let canvas = document.getElementById('myCanvas')
+        let ctx = canvas.getContext('2d')
+
+        let talalat = 0
+        let melle = 0
+        window.time = 0
+        window.run = 0
+
+        canvas.addEventListener('click', function () { click(event) })
+
+        let kepek = ['foot.png', 'foot2.png', 'kapa.png', 'leg.png', 'leg2.png', 'leg3.png', 'leg4.png', 'traktor.png']
+        let index = Math.floor((Math.random() * 2))
+
+        function ujkep() {
+            let imageObj = new Image()
+            imageObj.src = 'kepek/' + kepek[index]
+            imageObj.onload = function () {
+                ctx.drawImage(imageObj, canvas.width - 100, 0, 65, 65)
+            }
+        }
+
+        function kepvaltas() {
+            window.index2 = Math.floor((Math.random() * kepek.length))
+            let imageObj = new Image()
+            imageObj.src = 'kepek/' + kepek[index2]
+            imageObj.onload = function () {
+                ctx.drawImage(imageObj, canvas.width / 2 - 100, canvas.height / 2 - 100, 200, 200)
+            }
+            if (index == index2) {
+                time = 0
+                window.timer_ = setInterval(timer, 10)
+            }
+            run++
+        }
+
+        function click(event) {
+            let x = Math.floor(event.clientX)
+            let y = Math.floor(event.clientY)
+
+            if (x <= 300 && y <= 300 && x >= 200 && y >= 200 && index == index2) {
+                clearInterval(valto)
+                clearInterval(timer_)
+                talalat++
+                document.getElementById('talal').innerHTML = 'Találat: ' + talalat
+                kepvaltas()
+                window.valto = setInterval(kepvaltas, 4000)
+            } else {
+
+                melle++
+                document.getElementById('melle').innerHTML = 'Mellé: ' + melle
+                kepvaltas()
+            }
+        }
+
+        function timer() {
+            time++
+            document.getElementById('time').innerHTML = "Reakció idő:" + time / 100 + 's'
+
+        }
+
+        function test(){
+            if(run == document.getElementById('num').value){
+                    clearInterval(valto)
+                    ctx.clearRect(0, 0, canvas.width, canvas.height)
+                }
+        }
+
+        function reaction() {
+            
+            ujkep()
+            kepvaltas()
+            
+            window.valto = setInterval(kepvaltas, 4000)
+            window.test = setInterval(test, 4100)
+        }
+    </script>
+</body>
+
+</html>
