@@ -8,10 +8,11 @@
 </head>
 
 <style>
-    body{
+    body {
         background-color: black;
     }
-    #container{
+
+    #container {
         display: block;
         margin: auto;
         width: 700px;
@@ -19,7 +20,8 @@
         background-color: white;
         padding-top: 50px;
     }
-    #circle{
+
+    #circle {
         width: 100px;
         height: 100px;
         margin: auto;
@@ -29,15 +31,17 @@
         border-radius: 100%;
         animation: pattogas 2s infinite;
     }
-    #rectangle{
+
+    #rectangle {
         width: 600px;
         height: 320px;
         margin: auto;
         background-color: steelblue;
     }
+
     @keyframes pattogas {
-        50%{
-            transform: translate(0, 200px);
+        50% {
+            transform: translateY(200px);
         }
     }
 </style>
@@ -48,10 +52,22 @@
         <div id="rectangle">
             <div id="circle"></div>
         </div>
+        <h1 id="helyzet"></h1>
     </div>
 
     <script>
-
+        function coordFunction() {
+            let circleTag = document.getElementById("circle");
+            let pos = parseInt(
+                window.getComputedStyle(circleTag).transform
+                    .replace('matrix(', '')
+                    .replace(')', '')
+                    .slice(14, 20)
+            )
+            document.getElementById("helyzet").innerHTML = `Aktuális pozíció: ${pos}px`;
+            setTimeout(coordFunction, 1);
+        }
+        coordFunction();
     </script>
 </body>
 
