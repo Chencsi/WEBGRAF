@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(169, 226, 228, 0.932);
+}
+
+#elso {
+    width: 700px;
+    padding: 10px;
+}
+
+#masodik {
+    width: 350px;
+}
+
+#day1 {
+    width: 350px;
+    margin: 20px;
+    margin-left: 150px;
+    margin-top: 40px;
+}
+
+h2 {
+    color: #000080;
+    margin: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    padding-left: 20px;
+    margin: 20px;
+}
+
+#sor {
+    background-color: #638BA8;
+}
+
+nav {
+    background-color: #E9E9E9;
+}
+
+#kep {
+    width: 600px;
+    height: 350px;
+    margin: 30px;
+}
+
+#dsk {
+    width: 1300px;
+    margin: 10px;
+}
+
+#forras {
+    border: 2px solid #000000;
+    background-color: rgb(156, 155, 155);
+    padding: 5px;
+    margin: 10px;
+    margin-left: 300px;
+    color: black;
+    text-decoration: none;
+    cursor: crosshair;
+    border-radius: 5px;
+}
+
+p {
+    margin: 15px;
+}
+
+#egesz {
+    margin-left: 70px;
+}
+
+#sorok {
+    background-color: rgb(156, 155, 155);
+}
+img{
+    border-radius: 5px;
+}
