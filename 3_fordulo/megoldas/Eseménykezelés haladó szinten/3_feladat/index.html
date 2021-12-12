@@ -6,11 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3. feladat</title>
+    <style>
+        canvas {
+            background-image: url(kepek/mezo.jpg);
+            background-size: 100% 100%;
+        }
+
+        #srt {
+            background-color: rgb(216, 216, 77);
+        }
+    </style>
 </head>
 
 <body>
-    <canvas id="myCanvas" width="1600" height="600" style="border: 1px black solid"></canvas>
+    <canvas id="myCanvas" width="1600" height="500" style="border: 1px black solid"></canvas>
     <script src="script.js"></script>
+    <p>(A piros kör a célt jelöli)</p>
+    <p id="miciPontjai">Micimackó pontjai: 0</p>
+    <p id="kangaPontjai">Kanga pontjai: 0</p>
+
+    <input type="button" onclick="fogadMici()" value="Micimackóra fogadok!">
+    <input type="button" onclick="fogadKanga()" value="Kangára fogadok!">
+    <br> <br>
+    <input id="srt" type="button" onclick="start()" value="Start!">
+
 </body>
 
 </html>
