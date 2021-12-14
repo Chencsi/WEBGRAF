@@ -5,7 +5,7 @@ let cmaxh = ctx.canvas.height;
 let cmaxw = ctx.canvas.width;
 
 
-let xmax = ymax = 20 // csúszka 10 - 20 (100 - 200 tízesével) értéktartomány
+let xmax = ymax = 10 // csúszka 5 - 20 (50 - 200 tízesével) értéktartomány
 let xmin = ymin = -xmax
 
 let ox = cmaxh / 2;
@@ -13,9 +13,9 @@ let oy = cmaxw / 2;
 
 let vanRacs = vanRajz = false;
 
-let a = 1 // input a csak szám!
-let b = 0 // input b csak szám!
-let c = 0 // input c csak szám!
+let a = -1/18   // input a csak szám!
+let b = 1       // input b csak szám!
+let c = -50     // input c csak szám!
 
 function fv(x, a, b) {
     let y = a * x + b;
@@ -38,7 +38,6 @@ function tengely() {
     ctx.stroke();
     ctx.closePath();
 }
-
 
 function racsok() {
     ctx.beginPath();
@@ -65,7 +64,74 @@ function rajz(a, b, c = 0) {
 
         ctx.fillRect(xx, yy, 1.5, 1.5);
     }
+    // lineáris
+    if (c == 0) {
+        if (b == 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x`
+        } else if (b < 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x - ${Math.abs(b)}`
+        } else if (b > 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x + ${b}`
+            // a = 1
+        } else if (b == 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x`
+        } else if (b < 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x  ${Math.abs(b)}`
+        } else if (b > 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x + ${b}`
+        }
+    } else {
+        if (b == 0 && c > 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> + ${c}`
+        } else if (b == 0 && c < 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> - ${Math.abs(c)}`
+        } else if (b == 1 && c > 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> + x + ${c}`
+        } else if (b == 1 && c < 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> + x - ${Math.abs(c)}`
+        } else if (b == -1 && c > 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> - x + ${Math.abs(c)}`
+        } else if (b == -1 && c < 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> - x - ${Math.abs(c)}`
+        } else if (b < 0 && c > 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> - ${Math.abs(b)}x + ${c}`
+        } else if (b < 0 && c < 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> - ${Math.abs(b)}x - ${Math.abs(c)}`
+        } else if (b > 0 && c > 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> + x + ${c}`
+        } else if (b > 0 && c < 0 && a != 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> + x - ${Math.abs(c)}`
 
+        } else if (b == 0 && c > 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> + ${c}`
+        } else if (b == 0 && c < 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> - ${Math.abs(c)}`
+        } else if (b == 1 && c > 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> + x + ${c}`
+        } else if (b == 1 && c < 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> + x - ${Math.abs(c)}`
+        } else if (b == -1 && c > 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> - x + ${Math.abs(c)}`
+        } else if (b == -1 && c < 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> - x - ${Math.abs(c)}`
+        } else if (b < 0 && c > 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> - ${Math.abs(b)}x + ${c}`
+        } else if (b < 0 && c < 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> - ${Math.abs(b)}x - ${Math.abs(c)}`
+        } else if (b > 0 && c > 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> + ${b}x + ${c}`
+        } else if (b > 0 && c < 0 && a == 1) {
+            document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> + ${b}x - ${Math.abs(c)}`
+
+
+        }
+    }
+
+
+    // c == 0 ? document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x + ${b}` : document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> + ${b}x + ${c}`
+    // c == 0 ? document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x + ${b}` : document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> + ${b}x - ${Math.abs(c)}`
+    // c == 0 ? document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x - ${Math.abs(b)}x` : document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> - ${Math.abs(b)}x + ${c}`
+    // c == 0 ? document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x - ${Math.abs(b)}x` : document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = ${a}x<sup>2</sup> - ${Math.abs(b)}x - ${Math.abs(c)}`
     ctx.stroke();
     ctx.closePath();
     ctx.fillStyle = '#000';
