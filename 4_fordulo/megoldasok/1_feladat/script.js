@@ -1,57 +1,103 @@
 let canvas = document.getElementById('myCanvas');
-let rtx = canvas.getContext('2d');
+let ctx = canvas.getContext('2d');
 
-let cmaxh = rtx.canvas.height;
-let cmaxw = rtx.canvas.width;
-//lépték
-let xmax = 10;
-let ymax = 10;
-let xmin = -10;
-let ymin = -10;
+let cmaxh = ctx.canvas.height;
+let cmaxw = ctx.canvas.width;
+
+
+let xmax = ymax = 20 // csúszka 10 - 20 (100 - 200 tízesével) értéktartomány
+let xmin = ymin = -xmax
+
 let ox = cmaxh / 2;
 let oy = cmaxw / 2;
+
+let vanRacs = vanRajz = false;
+
+let a = 1 // input a csak szám!
+let b = 0 // input b csak szám!
+let c = 0 // input c csak szám!
 
 function fv(x, a, b) {
     let y = a * x + b;
     return y;
 }
 
-rtx.beginPath();
-rtx.lineWidth = 3;
-rtx.strokeStyle = "#000000"; //tengelyek rajzolás
-rtx.moveTo(0, ox);
-rtx.lineTo(cmaxw, ox);
-rtx.moveTo(oy, 0);
-rtx.lineTo(oy, cmaxh);
-rtx.stroke();
-rtx.beginPath();
-rtx.strokeStyle = 'lightgray';
-rtx.lineWidth = 1;
-//Függőleges rácsvonalak
-for (let x = 0; x < cmaxw; x += cmaxw / (2 * xmax)) {
-    rtx.moveTo(x, 0);
-    rtx.lineTo(x, cmaxh);
+function masod(x, a, b, c) {
+    let y = a * (x ** 2) + b * x + c;
+    return y
 }
-// Vizszintes rácsvonalak
-for (let y = 0; y < cmaxh; y += cmaxh / (2 * ymax)) {
-    rtx.moveTo(0, y);
-    rtx.lineTo(cmaxw, y);
+
+function tengely() {
+    ctx.beginPath();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "#000";
+    ctx.moveTo(0, ox);
+    ctx.lineTo(cmaxw, ox);
+    ctx.moveTo(oy, 0);
+    ctx.lineTo(oy, cmaxh);
+    ctx.stroke();
+    ctx.closePath();
 }
-rtx.stroke();
-rtx.fillStyle = 'red'; //az y=2x+3 függvény rajzolása
-for (let x = -xmax; x < xmax; x += 0.01) {
-    let xx = ox + x / (xmax - xmin) * cmaxw;
-    let y = fv(x, 2, 3);
-    let yy = oy - y / (ymax - ymin) * cmaxh;;
-    // Pont rajzolása
-    rtx.fillRect(xx, yy, 1, 1);
-}
-rtx.stroke();
-function submit(){
-    if (document.getElementById("racs").checked) {
-        console.log('pipa')
-    }else{
-        console.log('nem pipa')
+
+
+function racsok() {
+    ctx.beginPath();
+    ctx.lineWidth = 0.2;
+    for (let x = 0; x < cmaxw; x += cmaxw / (2 * xmax)) {
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, cmaxh);
     }
-    
+    for (let y = 0; y < cmaxh; y += cmaxh / (2 * ymax)) {
+        ctx.moveTo(0, y);
+        ctx.lineTo(cmaxw, y);
+    }
+    ctx.stroke();
+    ctx.closePath();
 }
+
+function rajz(a, b, c = 0) {
+    ctx.beginPath();
+    ctx.fillStyle = '#4169e1';
+    for (let x = -(xmax * 10); x < (xmax * 10); x += 0.01) {
+        let xx = ox + x / ((xmax * 10) - (xmin * 10)) * cmaxw;
+        let y = c == 0 ? fv(x, a, b) : masod(x, a, b, c);
+        let yy = oy - y / ((ymax * 10) - (ymin * 10)) * cmaxh;
+
+        ctx.fillRect(xx, yy, 1.5, 1.5);
+    }
+
+    ctx.stroke();
+    ctx.closePath();
+    ctx.fillStyle = '#000';
+}
+
+function racsokTest() { // checkbox a rács megjelenéséhez
+    vanRacs = !vanRacs
+
+    if (vanRacs) {
+        racsok();
+    } else {
+        ctx.clearRect(0, 0, cmaxh, cmaxw)
+        tengely();
+        if (vanRajz) {
+            rajz(a, b, c);
+        }
+    }
+}
+
+function rajzTest() { // checkbox a függvény megjelenéséhez
+    vanRajz = !vanRajz
+    if (vanRajz) {
+        ctx.fillStyle = '#4169e1';
+        rajz(a, b, c);
+    } else {
+        ctx.clearRect(0, 0, cmaxh, cmaxw)
+        tengely();
+        if (vanRacs) {
+            racsok();
+        }
+    }
+}
+tengely();      // onload
+racsokTest();   // onload
+rajzTest();     // onload
