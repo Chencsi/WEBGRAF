@@ -13,9 +13,9 @@ let oy = cmaxw / 2;
 
 let vanRacs = vanRajz = false;
 
-let a = -1/18   // input a csak szám!
-let b = 1       // input b csak szám!
-let c = -50     // input c csak szám!
+let a = 1       // input a csak szám!
+let b = 0       // input b csak szám!
+let c = 0       // input c csak szám!
 
 function fv(x, a, b) {
     let y = a * x + b;
