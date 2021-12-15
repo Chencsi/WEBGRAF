@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1_feladat</title>
 </head>
+
 <body>
     <canvas id='myCanvas' width='800px' height='800px' style='border:1px black solid'></canvas>
-    
-    <form>
-        <!-- ¯\_(ツ)_/¯ -->
+
+    <form onsubmit="return sub(submit)">
+        <input id="a" value="1" type="number" step="0.01">
+        <input id="b" value="0" type="number" step="0.01">
+        <input id="c" value="0" type="number" step="0.01">
+
+        <input id="xmax" type="range" min="5" max="20" value="20" oninput="xmax.nextElementSibling.value = xmax.value *10">
+        <output>200</output>
+        
+        <input id="rajz" checked type="checkbox">
+        <label for="rajz">Függvény megjelenítése</label>
+
+        <input id="racs" checked type="checkbox">
+        <label for="racs">Rács megjelenítése</label>
     </form>
     <p id="fgv">Jelenlegi függvény: </p>
     <script src="script.js"></script>
 </body>
+
 </html>
