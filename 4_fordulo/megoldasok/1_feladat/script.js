@@ -76,7 +76,6 @@ function rajz(a, b, c = 0) {
         let xx = ox + x / ((xmax * 10) - (xmin * 10)) * cmaxw;
         let y = c == 0 ? fv(x, a, b) : masod(x, a, b, c);
         let yy = oy - y / ((ymax * 10) - (ymin * 10)) * cmaxh;
-
         ctx.fillRect(xx, yy, 1.5, 1.5);
     }
     if (c == 0) {
@@ -138,18 +137,14 @@ function rajz(a, b, c = 0) {
             document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> + ${b}x + ${c}`
         } else if (b > 0 && c < 0 && a == 1) {
             document.getElementById('fgv').innerHTML = `Jelenlegi függvény: f(x) = x<sup>2</sup> + ${b}x - ${Math.abs(c)}`
-
-
         }
     }
-
     ctx.stroke();
     ctx.closePath();
     ctx.fillStyle = '#000';
 }
 
 function racsokTest() { // checkbox a rács megjelenéséhez
-
     if (vanRacs) {
         ctx.clearRect(0, 0, cmaxh, cmaxw)
         tengely();
@@ -162,7 +157,6 @@ function racsokTest() { // checkbox a rács megjelenéséhez
         }
     }
 }
-
 function rajzTest() { // checkbox a függvény megjelenéséhez
 
     if (vanRajz) {
@@ -181,5 +175,3 @@ function rajzTest() { // checkbox a függvény megjelenéséhez
         }
     }
 }
-
-
