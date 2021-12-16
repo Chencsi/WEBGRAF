@@ -16,8 +16,8 @@ let vanRajz = true;
 let a = 1       // input a csak szám!
 let b = 0       // input b csak szám!
 let c = 0       // input c csak szám!
-setInterval(sub, 10)
-function sub(form) {
+sub();
+function sub() {
     a = document.getElementById('a').value
     b = parseFloat(document.getElementById('b').value)
     c = parseFloat(document.getElementById('c').value)
@@ -65,6 +65,11 @@ function racsok() {
         ctx.moveTo(0, y);
         ctx.lineTo(cmaxw, y);
     }
+    ctx.font = "20px Arial"
+    ctx.fillText(xmax * 10, cmaxw - 40, oy - 5);
+    ctx.fillText(xmin * 10, 5, oy - 5);
+    ctx.fillText(ymax * 10, ox + 5, 20);
+    ctx.fillText(ymin * 10, ox + 5, cmaxh - 5);
     ctx.stroke();
     ctx.closePath();
 }

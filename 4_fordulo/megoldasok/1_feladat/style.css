@@ -1,3 +1,17 @@
 #a, #b, #c{
     width: 50px;
 }
+label, input, output{
+    margin: 5px;
+}
+form{
+    width: 440px;
+    margin: 20px;
+    padding: 10px;
+    background-color: rgb(158, 241, 241);
+}
+canvas{
+    position: absolute;
+    left: 500px;
+    background-color: snow;
+}

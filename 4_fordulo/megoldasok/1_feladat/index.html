@@ -11,26 +11,27 @@
 <body>
     <canvas id='myCanvas' width='800px' height='800px' style='border:1px black solid'></canvas>
 
-    <form onsubmit="return sub(submit)">
+    <form onchange="sub()">
         <label for="a">Együttható (a): </label>
         <input id="a" value="1" type="number" step="0.01">
         <br>
-        <label for="b">Együttható (b): </label>
+        <label for="b">Együttható / konstans (b): </label>
         <input id="b" value="0" type="number" step="0.01">
         <br>
         <label for="c">Konstans tag (c): </label>
         <input id="c" value="0" type="number" step="0.01">
         <br>
+        <label for="xmax">Értéktartomány nagysága: </label>
         <input id="xmax" type="range" min="5" max="20" value="20" oninput="xmax.nextElementSibling.value = xmax.value *10">
         <output>200</output>
-        
+        <br>
         <input id="rajz" checked type="checkbox">
         <label for="rajz">Függvény megjelenítése</label>
 
         <input id="racs" checked type="checkbox">
         <label for="racs">Rács megjelenítése</label>
+        <p id="fgv">Jelenlegi függvény: </p>
     </form>
-    <p id="fgv">Jelenlegi függvény: </p>
     <script src="script.js"></script>
 </body>
 
