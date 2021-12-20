@@ -3,6 +3,27 @@ window.onload = function () {
     let hNumbers = [];
     const tdInTable = document.querySelectorAll('td');
 
+    function resetButtons(){
+        for (let i = 0; i < 10; i++) {
+            let rndNum = Math.floor(Math.random() * 10);
+            (numbers.includes(rndNum)) ? i -= 1 : numbers.push(rndNum);
+        }
+        for (let i = 0; i < 10; i++) {
+            document.getElementById(`button${i}`).innerHTML = numbers[i];
+        }
+        for (let i = 0; i < tdInTable.length; i++) {
+            if (i == 10) {
+                tdInTable[10].addEventListener('click', function () {
+                    addToInput(numbers[i - 10])
+                });
+            } else {
+                tdInTable[i].addEventListener('click', function () {
+                    addToInput(numbers[i + 1]);
+                });
+            }
+    
+        }
+    }
     function openFunction(){
         document.getElementById('doorImg').style.backgroundImage = "url('img/door.jpg')";
     }
@@ -22,24 +43,5 @@ window.onload = function () {
             }, 1);
         }
     }
-
-    for (let i = 0; i < 10; i++) {
-        let rndNum = Math.floor(Math.random() * 10);
-        (numbers.includes(rndNum)) ? i -= 1 : numbers.push(rndNum);
-    }
-    for (let i = 0; i < 10; i++) {
-        document.getElementById(`button${i}`).innerHTML = numbers[i];
-    }
-    for (let i = 0; i < tdInTable.length; i++) {
-        if (i == 10) {
-            tdInTable[10].addEventListener('click', function () {
-                addToInput(numbers[i - 10])
-            });
-        } else {
-            tdInTable[i].addEventListener('click', function () {
-                addToInput(numbers[i + 1]);
-            });
-        }
-
-    }
+    resetButtons();
 }
