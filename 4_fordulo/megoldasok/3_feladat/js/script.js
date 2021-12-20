@@ -4,9 +4,13 @@ window.onload = function () {
     const tdInTable = document.querySelectorAll('td');
 
     function openFunction(){
-        document.getElementById('doorImg').style.backgroundImage = "url('../img/door.jpg')";
+        document.getElementById('doorImg').style.backgroundImage = "url('img/door.jpg')";
     }
-
+    function retryFunction(){
+        alert('Próbáld újra!')
+        document.querySelector('#input').innerHTML = '';
+        hNumbers = [];
+    }
     function addToInput(n) {
         if (hNumbers.length != 4) {
             hNumbers.push(n);
@@ -14,9 +18,7 @@ window.onload = function () {
                 document.querySelector('#input').innerHTML + '*';
         } if (hNumbers.length == 4) {
             setTimeout(function () {
-                (hNumbers.toString() == '8,9,9,6') ? openFunction() : alert('Próbáld újra!');
-                /*document.querySelector('#input').innerHTML = '';
-                hNumbers = [];*/
+                (hNumbers.toString() == '8,9,9,6') ? openFunction() : retryFunction();
             }, 1);
         }
     }
