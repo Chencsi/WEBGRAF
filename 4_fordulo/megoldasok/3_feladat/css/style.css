@@ -1,5 +1,5 @@
 body{
-    background-color: darkslategray;
+    background-color: rgb(26, 44, 44);
 }
 .container{
     background-color: white;
@@ -28,19 +28,29 @@ body{
     display: block;
     margin: 0 auto 30px auto;
 }
+#doorImg{
+    width: 100px;
+    height: 120px;
+    background-image: url('../img/door1.jpg');
+    background-size: cover;
+    display: block;
+    margin: -70px 10px;
+}
 h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
     padding: 30px 0 0 0;
     text-transform: uppercase;
+    color: darkslategray;
 }
 td{
-    border-radius: 6px;
+    border-radius: 7px;
     padding: 30px;
-    background-color: darkgray;
+    background-color: rgb(52, 121, 121);
+    color: white;
     user-select: none;
     font-size: 18pt;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: Verdana;
 }
 td:hover{
     background-color: darkslategray;
