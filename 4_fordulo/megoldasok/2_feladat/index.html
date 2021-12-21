@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>2 feladat</title>
+    <title>2. feladat</title>
 </head>
 
 <body>
-    <canvas id="canvas" width="1000" height="500" style="border: solid 1px black;"></canvas>
-    <form action="" oninput="sub()">
-        <input id="hossz" type="range" min="1" max="10" orient="vertical">
-        <input id="ero" type="range" min="1" max="10" orient="vertical">
-        <input type="color">
+    <canvas id="canvas" width="1300" height="500" style="border: solid 1px black;"></canvas>
+    <form oninput="sub()">
+        <input id="hossz" type="range" min="400" max="1238" value="1238">
+        <input id="ero" type="range" min="25" max="35" value="25" orient="vertical">
+        <input id="szin" type="color" value="#00c70d">
+        <input id="gomb" type="button" onclick="kimegy()">
     </form>
 
     <script src="scirpt.js"></script>

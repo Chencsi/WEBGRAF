@@ -1,0 +1,46 @@
+canvas, form, input {
+    position: absolute;
+}
+
+#gomb {
+    left: 238px;
+    top: 229px;
+    background-color: red;
+    border: solid 1px darkred;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    
+}
+
+#hossz {
+    top: 252px;
+    left: 235px;
+    width: 50px;
+}
+
+#ero {
+    -webkit-appearance: slider-vertical;
+    top: 227px;
+    left: 220px;
+    height: 46px;
+    width: 8px;
+}
+
+#szin {
+    top: 226px;
+    left: 174px;
+    height: 41px;
+    width: 27px;
+    border: none;
+    outline: none;
+    
+}
+
+#szin::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+#szin::-webkit-color-swatch {
+    border: none;
+}
